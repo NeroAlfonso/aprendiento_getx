@@ -1,0 +1,10 @@
+version: "3"
+services:
+    asosolng:
+        image: nginx
+        volumes:
+            - "./nginx-config:/etc/nginx/conf.d"
+            - "./build/web:/usr/share/nginx/html"
+        ports:
+            - "4800:80"
+        restart: always
