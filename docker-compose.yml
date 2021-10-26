@@ -1,6 +1,6 @@
 version: "3"
 services:
-    asosolng:
+    apren_getx:
         image: nginx
         volumes:
             - "./nginx-config:/etc/nginx/conf.d"
