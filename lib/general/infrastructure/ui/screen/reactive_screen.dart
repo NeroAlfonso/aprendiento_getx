@@ -18,17 +18,43 @@ class ReactiveScreen extends StatelessWidget {
                 children: [
                   FloatingActionButton(
                       onPressed: () {
-                        _.increment();
+                        //_.increment();
+                        _.getDate();
                       },
                       child: Icon(Icons.add)),
                   FloatingActionButton(
                       onPressed: () {
-                        _.getDate();
+                        //_.addItem();
+                        _.addMapItem();
                       },
                       child: Icon(Icons.calendar_today))
                 ],
               ),
-              body: Column(
+              body: Obx(() => ListView(
+                    children: _.mapItems.values
+                        .map((dynamic e) => ListTile(
+                            title: Text(e),
+                            trailing: IconButton(
+                                icon: Icon(Icons.remove),
+                                onPressed: () => _.removeMapItem(e))))
+                        .toList(),
+                  )) /*Obx(() {
+                print('re render');
+                return ListView.builder(
+                    itemBuilder: (__, index) {
+                      final String text = _.items[index];
+                      return ListTile(
+                        title: Text(text),
+                        trailing: IconButton(
+                            onPressed: () {
+                              _.removeItem(index);
+                            },
+                            icon: Icon(Icons.delete)),
+                      );
+                    },
+                    itemCount: _.items.length);
+              })*/
+              /*Column(              
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Obx(() {
@@ -44,7 +70,8 @@ class ReactiveScreen extends StatelessWidget {
                   Obx(() =>
                       Text(_.currentDate.value, style: TextStyle(fontSize: 30)))
                 ],
-              ));
+              )*/
+              );
         });
   }
 }
