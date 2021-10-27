@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
@@ -13,7 +14,7 @@ class ReactiveScreen extends StatelessWidget {
         builder: (_) {
           print("reactive");
           return Scaffold(
-              floatingActionButton: Row(
+              /*floatingActionButton: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   FloatingActionButton(
@@ -29,8 +30,20 @@ class ReactiveScreen extends StatelessWidget {
                       },
                       child: Icon(Icons.calendar_today))
                 ],
-              ),
-              body: Obx(() => ListView(
+              ),*/
+              body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Obx(() => Text("age ${_.myPet.value.age}")),
+              CupertinoButton(
+                  child: Text('Agregar año'),
+                  onPressed: () {
+                    _.setPetAge(_.myPet.value.age + 1);
+                  })
+            ],
+          )
+
+              /*Obx(() => ListView(
                     children: _.mapItems.values
                         .map((dynamic e) => ListTile(
                             title: Text(e),
@@ -38,7 +51,7 @@ class ReactiveScreen extends StatelessWidget {
                                 icon: Icon(Icons.remove),
                                 onPressed: () => _.removeMapItem(e))))
                         .toList(),
-                  )) /*Obx(() {
+                  ))*/ /*Obx(() {
                 print('re render');
                 return ListView.builder(
                     itemBuilder: (__, index) {
