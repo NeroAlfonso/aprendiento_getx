@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:mnfoods_front/general/model/pet_model.dart'; //para programación reactiva
 
 class ReactiveController extends GetxController {
-  Rx<Pet> myPet = Pet(name: 'Lele', age: 1).obs;
+  //Rx<Pet> myPet = Pet(name: 'Lele', age: 1).obs;
+  Pet myPet = Pet(name: 'Lele', age: 1);
   //int counter = 0;
   RxInt counter = 0.obs; //observable
   RxString currentDate = ''.obs;
@@ -13,8 +14,9 @@ class ReactiveController extends GetxController {
     //myPet.value.age =age; //no funciona ya que la instancia es de tipo Rx<Pet> por lo tanto
     //deberíamos actualizarl la instancia y no la propiedad
     //cambiando la propiedad no se considera que ha actualizado la instancia
-    myPet.value = myPet.value
-        .copyWith(age: age); //de esta forma si está actualizando la instancia
+    //myPet.value = myPet.value
+    //.copyWith(age: age); //de esta forma si está actualizando la instancia
+    myPet.age = age;
   }
 
   void getDate() {

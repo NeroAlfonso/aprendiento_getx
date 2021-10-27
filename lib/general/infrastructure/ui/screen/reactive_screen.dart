@@ -34,11 +34,11 @@ class ReactiveScreen extends StatelessWidget {
               body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Obx(() => Text("age ${_.myPet.value.age}")),
+              Obx(() => Text("age ${_.myPet.age}")),
               CupertinoButton(
                   child: Text('Agregar año'),
                   onPressed: () {
-                    _.setPetAge(_.myPet.value.age + 1);
+                    _.setPetAge(_.myPet.age + 1);
                   })
             ],
           )
