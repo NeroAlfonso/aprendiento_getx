@@ -1,14 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:mnfoods_front/general/application/reactive_controller.dart';
+import 'package:mnfoods_front/general/application/socket_client_controller.dart';
 
 class ReactiveScreen extends StatelessWidget {
   const ReactiveScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final SocketClientController socketController =
+        Get.find<SocketClientController>();
     return GetBuilder<ReactiveController>(
         init: ReactiveController(),
         builder: (_) {
@@ -34,7 +38,8 @@ class ReactiveScreen extends StatelessWidget {
               body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Obx(() => Text("age ${_.myPet.age}")),
+              //Obx(() => Text("age ${_.myPet.age}")),
+              Obx(() => Text(socketController.message.value)),
               CupertinoButton(
                   child: Text('Agregar año'),
                   onPressed: () {
