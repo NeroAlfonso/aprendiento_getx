@@ -16,7 +16,6 @@ class ReactiveScreen extends StatelessWidget {
     return GetBuilder<ReactiveController>(
         init: ReactiveController(),
         builder: (_) {
-          print("reactive");
           return Scaffold(
               /*floatingActionButton: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -44,6 +43,11 @@ class ReactiveScreen extends StatelessWidget {
                   child: Text('Agregar año'),
                   onPressed: () {
                     _.setPetAge(_.myPet.age + 1);
+                  }),
+              CupertinoButton(
+                  child: Text('Lista de usuarios'),
+                  onPressed: () {
+                    _.toUsers();
                   })
             ],
           )

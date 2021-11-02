@@ -11,7 +11,8 @@ class HomeScreen extends StatelessWidget {
     return GetBuilder<HomeController>(
       builder: (_) => Scaffold(
           //body: HomeUserList(),
-          body: ProductList(),
+          body: Text(_.id.toString()),
+          //, ProductList()]
           floatingActionButton: FloatingActionButton(
               onPressed: () {
                 _.increment();

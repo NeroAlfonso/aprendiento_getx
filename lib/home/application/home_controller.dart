@@ -9,20 +9,23 @@ class HomeController extends GetxController {
   int get counter => _counter;
   List<User> _users = [];
   bool _loading = true;
+  late final String _id;
   @override
   void onInit() {
     super.onInit();
-    print("widget cargado en memoria");
+    print('Controller');
+    print(Get.parameters['local'] as String);
+    _id = Get.parameters['local'] as String;
   }
 
   @override
   void onReady() {
     super.onReady();
-    print("widget renderizado");
     this.loadUsers();
     //lugar idoneo para mostrar un dialogo o una pagina
   }
 
+  String get id => _id;
   List<User> get users => _users;
   bool get loading => _loading;
   Future<void> loadUsers() async {

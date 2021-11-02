@@ -1,12 +1,20 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:mnfoods_front/general/model/product_model.dart';
 
 class GlobalController extends GetxController {
   List<Product> _products = [];
   List<Product> get products => _products;
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    super.onReady();
+    //Get.toNamed('/');
+  }
+
   @override
   void onInit() {
     super.onInit();

@@ -30,6 +30,10 @@ class ReactiveController extends GetxController {
     _subscription.cancel();
   }
 
+  void toUsers() {
+    Get.toNamed('/users/123');
+  }
+
   void setPetAge(int age) {
     //myPet.value.age =age; //no funciona ya que la instancia es de tipo Rx<Pet> por lo tanto
     //deberíamos actualizarl la instancia y no la propiedad
