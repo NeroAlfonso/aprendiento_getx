@@ -5,6 +5,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:mnfoods_front/general/application/reactive_controller.dart';
 import 'package:mnfoods_front/general/application/socket_client_controller.dart';
+import 'package:mnfoods_front/general/model/themes.dart';
 
 class ReactiveScreen extends StatelessWidget {
   const ReactiveScreen({Key? key}) : super(key: key);
@@ -48,6 +49,11 @@ class ReactiveScreen extends StatelessWidget {
                   child: Text('Lista de usuarios'),
                   onPressed: () {
                     _.toUsers();
+                  }),
+              CupertinoButton(
+                  child: Text('cambiar tema'),
+                  onPressed: () {
+                    Get.changeTheme(Themes().darkTheme);
                   })
             ],
           )
